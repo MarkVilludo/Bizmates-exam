@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/weather-forecast', 'WeatherForcastController@index');
+Route::get('/weather-forecast/{city}', 'WeatherForcastController@show')->name('weather.forecast');

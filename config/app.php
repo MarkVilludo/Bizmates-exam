@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        MarkVilludo\CountryStateCities\ServiceProvider::class,
 
         /*
          * Application Service Providers...
