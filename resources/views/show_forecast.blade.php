@@ -87,9 +87,6 @@
                     {{$city.', '.$name}}
                     {{$celsius}}  °C | {{$fahrenheit}} F
                 </h2>
-
-
-              
             </div>
 
                 
