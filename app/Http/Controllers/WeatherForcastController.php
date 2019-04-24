@@ -46,6 +46,8 @@ class WeatherForcastController extends Controller
             $data = [
                 'weather' => $rawData->weather[0],
                 'main' => $rawData->main,
+                "celsius" => round(($rawData->main->temp - 273.15)),
+                "fahrenheit" => round((($rawData->main->temp - 273.15) * 1.8) + 32),
                 'wind' => $rawData->wind,
                 'rain' => $rawData->rain,
                 'sys' => $rawData->sys,

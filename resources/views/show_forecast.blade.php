@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
         
 
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!-- Styles -->
         <style>
@@ -23,33 +23,6 @@
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
-            }
-            .hero {
-              position: absolute;
-              min-height: 100vh;
-              min-width: 100vw;
-              top: 0;
-              bottom: 0;
-              background-color: rgba(31, 34, 118, 0.5);
-              z-index: -5;
-            }
-
-            .navbar {
-              background-color: rgb(69, 106, 171);
-            }
-
-            .navbar a {
-              color: white;
-              font-size: 25px;
-            }
-
-            .weather {
-              border: 1px solid white;
-              height: 30rem;
-              margin-top: 10rem;
-              background-color: rgba(0, 0, 0, 0.5);
-              border-radius: 20px;
-              color: white;
             }
 
             .full-height {
@@ -89,36 +62,52 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-
-            .m-b-md {
-                margin-bottom: 30px;
+            .bg-header {
+                height: 70vh;
+                background-image: url('../image/bg-weather.jpeg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background-position: center center;
             }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
+        <div class="content">
+            <div class="bg-header">
                 <h2>
+                    {{ date("D, M")}} <br>
                     {{$city.', '.$name}}
+                    {{$celsius}}  °C | {{$fahrenheit}} F
                 </h2>
 
-                <div class="links">
 
-                    <div id="icon"><img id="wicon" src="http://openweathermap.org/img/w/{{$weather->icon}}.png" alt="Weather icon">
-                        <p>{{$weather->main}}</p>
-                        <p>{{$weather->description}}</p>
-                    </div>
-
-                    <!-- //main -->
-                    <!-- {{var_dump($wind)}}<br> -->
-                    <!-- {{var_dump($rain)}}<br> -->
-                    <!-- {{var_dump($sys)}}<br> -->
-                    <p>Sunrise Time </p>{{date("Y-m-d H:i:s a", $sys->sunrise)}}
-                    <p>Sunset Time </p>{{date("Y-m-d H:i:s a", $sys->sunset)}}
-
-                    <p>Date Time </p>{{date("Y-m-d H:i:s a", $date_time)}}
+                <div id="icon"><img id="wicon" src="http://openweathermap.org/img/w/{{$weather->icon}}.png" alt="Weather icon">
+                    <p>{{$weather->main}}</p>
+                    <p>{{$weather->description}}</p>
                 </div>
+
+                
+
             </div>
+            <div style="display: flex; justify-content: center; width: 100%; background: #66ccff; border-bottom: 5px solid #3399ff">
+                <!-- {{var_dump($wind)}}<br> -->
+                <div style="margin: 20px">Sunrise  <br>
+                    <i class="fa fa-sun"></i>
+                    {{date("H:i:s a", $sys->sunrise)}}
+                </div>
+                <div style="margin: 20px">Sunset <br>
+                    {{date("H:i:s a", $sys->sunset)}} 
+                </div>
+                <div style="margin: 20px">Current Time <br>
+                    {{date("H:i:s a", $date_time)}}
+                </div>
+
+            </div>
+
         </div>
     </body>
 </html>
