@@ -79,14 +79,17 @@
     <body>
         <div class="content">
             <div class="bg-header">
-                <h2>
-                    <img id="wicon" src="http://openweathermap.org/img/w/{{$weather->icon}}.png" alt="Weather icon">
-                    <small> {{$weather->main}} ( {{$weather->description}} )</small><br>
+                <div style="width: 40%; background-color: #2b2525b5">
+                    <h2>
+                        <img id="wicon" src="http://openweathermap.org/img/w/{{$weather->icon}}.png" alt="Weather icon">
+                        <small> {{$weather->main}} ( {{$weather->description}} )</small><br>
 
-                    {{ date("D, M")}} <br>
-                    {{$city.', '.$name}}
-                    {{$celsius}}  °C | {{$fahrenheit}} F
-                </h2>
+                        {{ date("D, M")}} <br>
+                        {{$city.', '.$name}}
+                        {{$celsius}}  °C | {{$fahrenheit}} F
+                    </h2>
+                </div>
+
             </div>
 
                 
