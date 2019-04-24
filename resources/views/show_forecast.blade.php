@@ -64,14 +64,15 @@
             }
             .bg-header {
                 height: 70vh;
-                background-image: url('../image/bg-weather.jpeg');
+                background-image: url('../image/bg-image.jpg');
                 background-repeat: no-repeat;
                 background-size: cover;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-                background-position: center center;
+                color: white;
+                background-position: center;
             }
         </style>
     </head>
@@ -79,16 +80,17 @@
         <div class="content">
             <div class="bg-header">
                 <h2>
+                    <img id="wicon" src="http://openweathermap.org/img/w/{{$weather->icon}}.png" alt="Weather icon">
+                    <small> {{$weather->main}} ( {{$weather->description}} )</small><br>
+
                     {{ date("D, M")}} <br>
                     {{$city.', '.$name}}
                     {{$celsius}}  °C | {{$fahrenheit}} F
                 </h2>
 
 
-                <div id="icon"><img id="wicon" src="http://openweathermap.org/img/w/{{$weather->icon}}.png" alt="Weather icon">
-                    <p>{{$weather->main}}</p>
-                    <p>{{$weather->description}}</p>
-                </div>
+              
+            </div>
 
                 
 
